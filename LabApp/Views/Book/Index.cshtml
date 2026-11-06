@@ -1,0 +1,44 @@
+@model List<LaboratoriumAsp.Models.Book>
+
+@{
+    ViewData["Title"] = "Książki";
+}
+
+@section Styles {
+    <style>
+        .table-custom-highlight { background-color: #f8f9fa; }
+    </style>
+}
+
+<h2>Książki</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">+ Dodaj książkę</a>
+
+<table class="table table-striped table-custom-highlight">
+    <thead>
+    <tr>
+        <th>Tytuł</th>
+        <th>Autor</th>
+        <th>Rok</th>
+        <th>Cena</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var b in Model)
+    {
+        <partial name="_BookRow" model="b" />
+    }
+    </tbody>
+</table>
+
+@section Footer {
+    <footer class="text-center text-muted mt-4">
+        <small>&copy; Sklep z Książkami - Lab 2</small>
+    </footer>
+}
+
+@section Scripts {
+    <script>
+        console.log("Widok Index został pomyślnie załadowany i uruchomił skrypt!");
+    </script>
+}
